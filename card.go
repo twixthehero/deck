@@ -100,7 +100,7 @@ type card struct {
 // NewCard returns a card from a normal deck with the
 // specified value and suit.
 func NewCard(v Value, s Suit) Card {
-	return nil
+	return &card{Value: v, Suit: s}
 }
 
 // NewJoker returns a joker card.
@@ -119,5 +119,5 @@ func (c *card) String() string {
 
 // IsJoker checks whether this card is a joker.
 func (c *card) IsJoker() bool {
-	return false
+	return c.Value == JokerValue || c.Suit == JokerSuit
 }
